@@ -1,0 +1,56 @@
+class User < ApplicationRecordTo create the models, views, and controllers for this app, you will need to have Ruby on Rails installed on your computer. Once you have that installed, you can use the rails generate command to create the models, views, and controllers for your app.
+
+To create the models, you will need to run the following commands:
+
+rails generate model Office name:string address:string phone_number:string
+rails generate model HourRange day_of_week:string start_time:time end_time:time office:references
+rails generate model User username:string password:string role:string
+rails generate model Appointment office:references client:references personal:references date_time:datetime motive:string state:string
+
+This will create four model files in the app/models directory of your Rails app. The Office model will have attributes for the office's name, address, and phone number. The HourRange model will have attributes for the day of the week, start time, end time, and an association with the Office model. The User model will have attributes for the username, password, and role. The Appointment model will have attributes for the associated Office, Client user, Personal user, date/time, motive, and state.
+
+Next, you will need to create the views and controllers for your app. To do this, you can run the following commands:
+
+rails generate controller Offices
+rails generate controller HourRanges
+rails generate controller Users
+rails generate controller Appointments
+
+This will create four controller files in the app/controllers directory of your Rails app. The controllers will handle the logic for displaying and updating the data for the corresponding models.
+
+For each controller, you will also need to create the corresponding views. To do this, you can create a directory for each controller in the app/views directory and create the necessary view files inside. For example, to create the views for the Offices controller, you would run the following commands:
+
+mkdir app/views/offices
+touch app/views/offices/index.html.erb
+touch app/views/offices/show.html.erb
+touch app/views/offices/new.html.erb
+touch app/views/offices/edit.html.erb
+
+These commands will create the necessary view files for the Offices controller, including a page for displaying a list of offices, a page for showing the details of a single office, a page for creating a new office, and a page for editing an existing office.
+
+Finally, you will need to add routes to your app to specify the URLs that correspond to each of the controllers and actions. To do this, you can add the necessary routes to the config/routes.rb file in your Rails app. For example, to add routes for the Offices controller, you would add the following lines to the routes.rb file:
+
+resources :offices
+
+This will add routes for the index, show, new, create, edit, update, and destroy actions of the Offices controller.
+
+Overall, creating the models, views, and controllers for this app will require writing some code and defining the necessary associations between the different models. However, using the rails generate command and
+sasegundoayllon@gmail.com
+continue please
+
+To continue, you will need to add some additional logic to your controllers and views to handle the registration and authorization for users, as well as the appointment scheduling for clients.
+
+In the Users controller, you will need to add actions for handling user registration and login. For example, you could add a signup action that creates a new user account and a login action that verifies a user's credentials and logs them in.
+
+In the Appointments controller, you will need to add an action for creating new appointments. This action should verify that the user making the appointment is a client, and it should only allow appointments to be made during the office's available hour ranges.
+
+In the corresponding views, you will need to add forms for user registration and login, as well as a form for creating new appointments. These forms should allow users to enter their information and submit it to the appropriate action in the controller.
+
+Finally, you will need to add some logic to the controllers and views to restrict access to certain actions and pages based on the user's role. For example, only users with the admin role should be allowed to create new offices or edit existing ones. Additionally, only users with the personal role should be able to view and manage appointments.
+
+Overall, creating the necessary models, views, and controllers for this app will require some additional coding and design work to handle the specific requirements of the app. However, using the rails generate command and following the standard conventions of Ruby on Rails can help you get started and quickly build the basic structure of the app.
+  enum rol: [:admin, :personal, :client]
+
+  devise :database_authenticable. :registrable, :recoverable,
+         :rememberable, :validatable
+end

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  motivo: MyText
+  estado: MyString
+  comentario: MyText
+  fecha_hora: 2022-12-06 14:37:15
+
+two:
+  motivo: MyText
+  estado: MyString
+  comentario: MyText
+  fecha_hora: 2022-12-06 14:37:15

@@ -1,0 +1,2 @@
+class Sucursale < ApplicationRecord
+end
